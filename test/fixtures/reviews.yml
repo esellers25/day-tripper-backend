@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyString
+  rating: 1
+  difficulty: MyString
+  date: 2021-06-08
+  user_id: one
+  trail_id: one
+
+two:
+  comment: MyString
+  rating: 1
+  difficulty: MyString
+  date: 2021-06-08
+  user_id: two
+  trail_id: two
