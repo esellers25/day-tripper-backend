@@ -8,8 +8,8 @@ class CreateTrails < ActiveRecord::Migration[6.1]
       t.integer :length
       t.integer :elevation_gain
       t.string :route_type
-      t.integer :latitude
-      t.integer :longitude
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

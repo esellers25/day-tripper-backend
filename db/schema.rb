@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_08_202859) do
+ActiveRecord::Schema.define(version: 2021_06_09_125012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lists", force: :cascade do |t|
+    t.string "title"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "title"
+    t.string "img_link"
+    t.date "date"
+    t.integer "user_id"
+    t.integer "trail_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.string "comment"
@@ -21,6 +38,13 @@ ActiveRecord::Schema.define(version: 2021_06_08_202859) do
     t.string "difficulty"
     t.date "date"
     t.integer "user_id"
+    t.integer "trail_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trail_lists", force: :cascade do |t|
+    t.integer "list_id"
     t.integer "trail_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -34,8 +58,8 @@ ActiveRecord::Schema.define(version: 2021_06_08_202859) do
     t.integer "length"
     t.integer "elevation_gain"
     t.string "route_type"
-    t.integer "latitude"
-    t.integer "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
