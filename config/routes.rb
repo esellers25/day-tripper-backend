@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :photos
   resources :reviews
 
-  resources :users
+  resources :users, only: [:index, :show, :create, :update, :destroy]
   resources :trails
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

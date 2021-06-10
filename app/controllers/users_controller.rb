@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    # before action :authorized, only: [:keep_logged_in]
+    before_action :authorized, only: [:keep_logged_in]
     before_action :find_user, only: [:show, :destroy]
     
     def index 
@@ -36,8 +36,12 @@ class UsersController < ApplicationController
 
     def keep_logged_in
         user_token = encode_token({user_id: @user.id})
-            render json: {user: UserSerializer.new(@user), token: user_token}
-    end 
+
+        render json: {
+            user: UserSerializer.new(@user), 
+            token: user_token
+        }
+    end
 
     def update 
         @user.update(user_params)

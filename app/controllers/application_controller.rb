@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
 
         end
     end
-
+    
     def logged_in_user
         if decoded_token
             user_id = decoded_token[0]['user_id']
