@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  post '/login', to: "users#login", as: 'login'
+  get '/keep_logged_in', to: "users#keep_logged_in"
   resources :trail_lists
   resources :lists
   resources :photos
   resources :reviews
 
-  post "/login", to: "users#login"
   resources :users
   resources :trails
 

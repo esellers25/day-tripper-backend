@@ -1,32 +1,42 @@
 class UsersController < ApplicationController
-    before_action :find_user, only: [:show, :destroy, :update]
+    # before action :authorized, only: [:keep_logged_in]
+    before_action :find_user, only: [:show, :destroy]
     
     def index 
-        users = User.all 
-        render json: users
+        @users = User.all 
+        render json: @users
     end 
     
     def show
         render json: @user 
     end 
 
+    def login 
+        
+        @user = User.find_by(username: params[:username])
+        if @user && @user.authenticate(params[:password])
+            user_token = encode_token({user_id: @user.id})
+            render json: {user: UserSerializer.new(@user), token: user_token}
+        else 
+            render json: {error: "Incorrect password"}
+        end 
+       
+    end 
+
     def create 
-        user = User.new(user_params) 
-        if user.valid? 
-            user.save 
-            render json: user 
+        @user = User.create(user_params) 
+        if @user.valid? 
+            user_token = encode_token({user_id: @user.id})
+            render json: {user: UserSerializer.new(@user), token: user_token}
         else 
             render json: {error: "Not able to create a new user"}
         end 
     end 
 
-    def login 
-        user = User.find_by(username: params[:username])
-        if user && user.authenticate(params[:password])
-            render json: {username: user.username, id: user.id, token: encode_token({user_id: user.id})}
-        else 
-            render json: {message: "Incorrect password"}
-        end 
+
+    def keep_logged_in
+        user_token = encode_token({user_id: @user.id})
+            render json: {user: UserSerializer.new(@user), token: user_token}
     end 
 
     def update 

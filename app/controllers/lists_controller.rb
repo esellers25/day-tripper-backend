@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
-
+    before action :authorized, only: [:create]
+    
     def index 
         lists = List.all 
         render json: lists 
@@ -11,7 +12,7 @@ class ListsController < ApplicationController
     end 
 
     def create 
-        list = List.create(list_params)
+        list = @user.lists.create(list_params)
         render json: list 
     end 
 

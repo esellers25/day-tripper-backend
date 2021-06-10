@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
 
+    before action :authorized, only: [:create, :destroy]
     before_action :find_review, only: [:show, :update, :destroy]
+    
     def index 
         reviews = Review.all 
         render json: reviews 
