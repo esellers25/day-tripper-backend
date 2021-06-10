@@ -1,5 +1,5 @@
 class ReviewSerializer < ActiveModel::Serializer
   attributes :id, :comment, :rating, :difficulty, :date
-  has_one :user_id
+  belongs_to :user
   has_one :trail_id
 end
