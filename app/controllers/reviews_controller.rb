@@ -1,15 +1,15 @@
 class ReviewsController < ApplicationController
 
-    before action :authorized, only: [:create, :destroy]
+    # before action :authorized, only: [:create]
     before_action :find_review, only: [:show, :update, :destroy]
-    
+
     def index 
         reviews = Review.all 
         render json: reviews 
     end
     
     def show 
-        render json: review 
+        render json: @review 
     end 
 
     def create 
@@ -18,19 +18,19 @@ class ReviewsController < ApplicationController
     end 
 
     def update 
-        review.update(review_params)
+        @review.update(review_params)
         render json: review 
     end 
 
     def destroy 
-        review.destroy 
+        @review.destroy 
         render json: {message: "review deleted"}
     end 
 
     private 
 
     def find_review
-        review = Review.find(params[:id])
+        @review = Review.find(params[:id])
     end 
 
     def review_params

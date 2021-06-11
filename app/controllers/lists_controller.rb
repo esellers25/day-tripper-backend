@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-    before action :authorized, only: [:create]
+    # before action :authorized, only: [:create]
     
     def index 
         lists = List.all 
@@ -7,7 +7,7 @@ class ListsController < ApplicationController
     end 
     
     def show 
-        list = List.find(params[:id])
+        list = List.find_by(user_id: params[:id])
         render json: list 
     end 
 
