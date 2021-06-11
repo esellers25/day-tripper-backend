@@ -9,7 +9,8 @@ class ReviewsController < ApplicationController
     end
     
     def show 
-        render json: @review 
+        author = @review.review_author
+        render json: {review: @review, user: author}
     end 
 
     def create 

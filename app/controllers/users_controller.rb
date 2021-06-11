@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :authorized, only: [:keep_logged_in]
-    before_action :find_user, only: [:lists, :show, :destroy]
+    before_action :find_user, only: [:lists, :show, :destroy, :update]
     
     def index 
         @users = User.all 
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     end
 
     def update 
-        @user.update(user_params)
+        @user.update!(params.require(:user).permit(:name, :email, :location, :profile_picture, :username, :id, :password))
         render json: @user 
     end 
 
