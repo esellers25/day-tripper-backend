@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/lists', to: "users#lists", as: 'lists'
   resources :trail_lists
   resources :lists
-  resources :photos
+  resources :photos, only: [:index, :show, :create]
   resources :reviews
 
   resources :users, only: [:index, :show, :create, :update, :destroy]

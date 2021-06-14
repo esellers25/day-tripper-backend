@@ -10,10 +10,16 @@ class PhotosController < ApplicationController
         render json: photo 
     end 
 
-    def create 
-        photo = Photo.create(photo_params)
-        render json: photo 
-    end 
+    def create
+        
+        result = Cloudinary::Uploader.upload(params[:img_link])
+        photo = Photo.create(user_id: params[:user_id], title: params[:title], trail_id: params[:trail_id], img_link: result['url'], date: params[:date])
+          if photo.save
+             render json: photo
+          else
+             render json: photo.errors
+          end
+     end
 
     def destroy 
         photo.destroy 
@@ -27,6 +33,6 @@ class PhotosController < ApplicationController
     end 
 
     def photo_params
-        params.require(:photo).permit(:title, :img_link, :date, :user_id, :trail_id)
+        params.permit(:title, :img_link, :date, :user_id, :trail_id)
     end 
 end

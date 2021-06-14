@@ -5,6 +5,5 @@ class Review < ApplicationRecord
   def review_author 
     self.user.username 
   end
-  
 
 end

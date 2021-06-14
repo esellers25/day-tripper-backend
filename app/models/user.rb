@@ -6,5 +6,4 @@ class User < ApplicationRecord
     has_many :trails, through: :photos
     has_many :lists 
     validates :username, uniqueness: true 
-    # validates :password, length: { minimum: 2 }
 end
