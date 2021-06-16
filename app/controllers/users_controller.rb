@@ -24,7 +24,8 @@ class UsersController < ApplicationController
     end 
 
     def create 
-        @user = User.create(user_params)
+        result = Cloudinary::Uploader.upload(params[:profile_picture])
+        @user = User.create(profile_picture: result['url'], name: params[:name], email: params[:email], location: params[:location], username: params[:username], password: params[:password])
         list = @user.lists.create(user_id: @user.id, title: "Favorited Hikes") 
         if @user.valid? 
             user_token = encode_token({user_id: @user.id})
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
     end
 
     def update 
-        @user.update!(params.require(:user).permit(:name, :email, :location, :profile_picture, :username, :id, :password))
+        @user.update(params.require(:user).permit(:name, :email, :location, :profile_picture, :username, :id, :password))
         render json: @user 
     end 
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :items
   post '/login', to: "users#login", as: 'login'
   get '/keep_logged_in', to: "users#keep_logged_in"
   

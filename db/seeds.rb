@@ -19,7 +19,8 @@ end
 
 #user
 User.create(name: "Erin Sellers", username: "esellers", email: "erin.e.sellers@gmail.com", password: "123", location: "Brooklyn, NY", profile_picture: "https://drive.google.com/file/d/1WLo4GXCswvf30iqvSqAqLA2MJK3Cii-I/view?usp=sharing")
-User.create(name: "Elena Ridker", username: "ridz", email: "eridker@gmail.com", password: "123", location: "Hartland, VT", profile_picture: "https://news.dartmouth.edu/sites/dart_news.prod/files/styles/slide/public/news/images/dartmouth-news-julie_dunfey_ken_burns_and_dayton_duncan_fall_2018_photo_credit_evan_barlow.jpg?itok=fioIdeM3")
+User.create(name: "Elena Ridker", username: "ridz", email: "erid@gmail.com", password: "123", location: "Hartland, VT", profile_picture: "https://news.dartmouth.edu/sites/dart_news.prod/files/styles/slide/public/news/images/dartmouth-news-julie_dunfey_ken_burns_and_dayton_duncan_fall_2018_photo_credit_evan_barlow.jpg?itok=fioIdeM3")
+User.create(name: "Andrew Ridker", username: "tolstoyBoi", email: "arid@gmail.com", password: "123", location: "Brooklyn, NY", profile_picture: "https://www.rcwlitagency.com/media/5756/andrew-ridker-c-george-baier-iv-3.jpg")
 
 puts "seeded users"
 
@@ -40,6 +41,7 @@ Trail.create(name: "Mount Hunger - Waterbury Trail", location: "CC Putnam State 
 Trail.create(name: "Mount Pisgah", location: "Willoughby State Forest", state: "VT", difficulty: "moderate", length: 4.1, elevation_gain: 1653, route_type: "Out and back", latitude: 44.863154264420054, longitude: -72.03239627146314)
 Trail.create(name: "Haystack Mountain Trail", location: "Green Mountain National Forest", state: "VT", difficulty: "moderate", length: 5.0, elevation_gain: 1010, route_type: "Out and back", latitude: 42.8996447, longitude: -72.91079)
 Trail.create(name: "Lye Brook Falls Trail", location: "Green Mountain National Forest", state: "VT", difficulty: "moderate", length: 4.4, elevation_gain: 918, route_type: "Out and back", latitude: 43.931637, longitude: -73.224218)
+Trail.create(name: "The Ridker Trail", location: "Hartland, VT", state: "VT", difficulty: "easy", length: 1.3, elevation_gain: 400, route_type: "Loop", latitude: 43.57898682980803, longitude: -72.3945561884198)
 
 #NH Trails 
 Trail.create(name: "Lonesome Lake Trail", location: "Lincoln, NH", state: "NH", difficulty: "moderate", length: 3.1, elevation_gain: 1026, route_type: "Loop", latitude: 44.1430, longitude: 71.6896)
@@ -83,7 +85,7 @@ Review.create(comment: "Brutal, killer on the knees!", difficulty: "hard", ratin
 puts "seeded reviews"
 
 #photos 
-Photo.create(date: "Oct 2 2020", user_id: User.first.id, trail_id: Trail.first.id, title: "Fall Hike", img_link:"https://static.rootsrated.com/image/upload/s--YxiMHiNL--/t_rr_large_traditional/l8t1w2es8h3weub3rkmf.jpg")
+Photo.create(date: "Oct 2 2020", user_id: User.first.id, trail_id: Trail.first.id, title: "Top of the hump", img_link:"https://static.rootsrated.com/image/upload/s--YxiMHiNL--/t_rr_large_traditional/l8t1w2es8h3weub3rkmf.jpg")
 
 puts "seeded photos"
 
@@ -91,5 +93,9 @@ puts "seeded photos"
 TrailList.create(list_id: List.first.id, trail_id: Trail.first.id)
 
 puts "seeded trail lists"
+
+Item.create(name: "Spikes", description: "Womens spikes for icy or slippery hikes. They run a little small, can fit up to a size 9.", borrowed: false, user_id: User.first.id, picture: "https://www.ebay.com/itm/203443015740?_trkparms=ispr%3D1&amdata=enc%3AAQAFAAAAkDEvIEMYUwhL0GWrHNWRR%2Fg209xYPVGoWEx7JzQ7zNOvqgYQUTLEzbtJ75YqbGEDk4YszTetID7gpYd8hQturzGChhguNwfnpE4iwLRDlpJ0slWqveX0frCNiftolXBfEWNLe4QswyqSHjMH8QZCcPPO3qGY4XzWfx71CIwaST1G4jmNo%2FAPUCYR61ZpMhnowg%3D%3D&chn=ps&norover=1&mkevt=1&mkrid=711-117182-37290-0&mkcid=2&itemid=203443015740&targetid=1262906534562&device=c&mktype=pla&googleloc=9004351&poi=&campaignid=12874653489&mkgroupid=121942647533&rlsatarget=pla-1262906534562&abcId=9300535&merchantid=223114833&gclid=CjwKCAjwwqaGBhBKEiwAMk-FtOc0PQVauririLjN04PH9MnfYFzuoxYTQ0EfPGEY1EPqjL0f56WqPBoCrxwQAvD_BwE")
+
+puts "item created"
 
 puts "seeding done!"

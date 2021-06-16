@@ -5,5 +5,6 @@ class User < ApplicationRecord
     has_many :photos 
     has_many :trails, through: :photos
     has_many :lists 
+    has_many :items 
     validates :username, uniqueness: true 
 end

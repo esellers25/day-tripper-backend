@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_125012) do
+ActiveRecord::Schema.define(version: 2021_06_16_190141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.boolean "borrowed"
+    t.string "picture"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "lists", force: :cascade do |t|
     t.string "title"
@@ -55,7 +65,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_125012) do
     t.string "location"
     t.string "state"
     t.string "difficulty"
-    t.integer "length"
+    t.float "length"
     t.integer "elevation_gain"
     t.string "route_type"
     t.float "latitude"
