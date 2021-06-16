@@ -15,7 +15,7 @@ class PhotosController < ApplicationController
         result = Cloudinary::Uploader.upload(params[:img_link])
         photo = Photo.create(user_id: params[:user_id], title: params[:title], trail_id: params[:trail_id], img_link: result['url'], date: params[:date])
           if photo.save
-             render json: photo
+             render json: {photo: photo, message: "Upload successful!"}
           else
              render json: photo.errors
           end
