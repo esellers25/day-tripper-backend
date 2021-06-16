@@ -24,7 +24,8 @@ class UsersController < ApplicationController
     end 
 
     def create 
-        @user = User.create(user_params) 
+        @user = User.create(user_params)
+        list = @user.lists.create(user_id: @user.id, title: "Favorited Hikes") 
         if @user.valid? 
             user_token = encode_token({user_id: @user.id})
             render json: {user: UserSerializer.new(@user), token: user_token}
