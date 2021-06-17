@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :authorized, only: [:keep_logged_in, :update]
-    before_action :find_user, only: [:lists, :show, :destroy, :update]
+    before_action :find_user, only: [:show, :destroy, :update]
     
     def index 
         @users = User.all 

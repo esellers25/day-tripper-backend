@@ -31,7 +31,7 @@ List.create(user_id: User.last.id, title: "Favorited Hikes")
 puts "seeded lists"
 
 #VT Trails 
-Trail.create(name: "Camel's Hump - Monroe Trail", location: "Waterbury, VT", state: "VT", difficulty: "hard", length: 6.0, elevation_gain: 2588, route_type: "Out and back", latitude: 44.32091908024217, longitude: -72.84898491586031)
+Trail.create(name: "Camel's Hump - Monroe Trail", location: "Waterbury, VT", state: "VT", difficulty: "hard", length: 6.0, elevation_gain: 2588, route_type: "Out and back", latitude: 44.31657415317369, longitude: -72.84954291534498)
 Trail.create(name: "Mount Mansfield - Sunset Ridge Trail", location: "Underhill, VT", state: "VT", difficulty: "hard", length: 5.9, elevation_gain: 2687, route_type: "Loop", latitude: 44.52928044936188, longitude: -72.84307628653508)
 Trail.create(name: "Killington Peak - Bucklin Trail", location: "Green Mountain National Forest", state: "VT", difficulty: "hard", length: 7.2, elevation_gain: 2470, route_type: "Out and back", latitude: 43.61774797850811, longitude: -72.88602049344486)
 Trail.create(name: "Sterling Pond Trail", location: "Jeffersonville, VT", state: "VT", difficulty: "moderate", length: 2.3, elevation_gain: 908, route_type: "Out and back", latitude: 44.557204510377034, longitude: -72.79316316241061)
@@ -86,6 +86,16 @@ puts "seeded reviews"
 
 #photos 
 Photo.create(date: "Oct 2 2020", user_id: User.first.id, trail_id: Trail.first.id, title: "Top of the hump", img_link:"https://static.rootsrated.com/image/upload/s--YxiMHiNL--/t_rr_large_traditional/l8t1w2es8h3weub3rkmf.jpg")
+Photo.create(date: "Apr 12 2021", user_id: User.second.id, trail_id: Trail.second.id, title: "Sunset views", img_link:"https://i.redd.it/1tf7ooofegt51.jpg")
+Photo.create(date: "July 13 2020", user_id: User.third.id, trail_id: Trail.third.id, title: "Worth the hike!", img_link:"http://3.bp.blogspot.com/-SYrYwkBOZXY/VVkVGPe-sDI/AAAAAAAAPJY/YZ_XshXpBHw/s1600/DSCF7627.JPG")
+Photo.create(date: "June 1 2020", user_id: User.first.id, trail_id: Trail.fourth.id, title: "Great summer day", img_link:"https://cdn-assets.alltrails.com/uploads/photo/image/23068576/large_ed59d1c3752be2da05df3bac2045f262.jpg")
+# Photo.create(date: "Aug 30 2020", user_id: User.second.id, trail_id: Trail.fifth.id, title: "Dreamy views", img_link:"https://static.rootsrated.com/image/upload/s--YxiMHiNL--/t_rr_large_traditional/l8t1w2es8h3weub3rkmf.jpg")
+# Photo.create(date: "Nov 10 2020", user_id: User.third.id, trail_id: Trail.all.sample.id, title: "Fall Hike", img_link:"https://static.rootsrated.com/image/upload/s--YxiMHiNL--/t_rr_large_traditional/l8t1w2es8h3weub3rkmf.jpg")
+# Photo.create(date: "Apr 20 2020", user_id: User.first.id, trail_id: Trail.all.sample.id, title: "The great outdoors", img_link:"https://static.rootsrated.com/image/upload/s--YxiMHiNL--/t_rr_large_traditional/l8t1w2es8h3weub3rkmf.jpg")
+# Photo.create(date: "Oct 22 2020", user_id: User.second.id, trail_id: Trail.all.sample.id, title: "Perfect fall day", img_link:"https://static.rootsrated.com/image/upload/s--YxiMHiNL--/t_rr_large_traditional/l8t1w2es8h3weub3rkmf.jpg")
+# Photo.create(date: "Nov 18 2020", user_id: User.third.id, trail_id: Trail.all.sample.id, title: "Weekend Getaway", img_link:"https://static.rootsrated.com/image/upload/s--YxiMHiNL--/t_rr_large_traditional/l8t1w2es8h3weub3rkmf.jpg")
+# Photo.create(date: "Mar 26 2021", user_id: User.first.id, trail_id: Trail.all.sample.id, title: "Stunning", img_link:"https://static.rootsrated.com/image/upload/s--YxiMHiNL--/t_rr_large_traditional/l8t1w2es8h3weub3rkmf.jpg")
+
 
 puts "seeded photos"
 
@@ -97,5 +107,6 @@ puts "seeded trail lists"
 Item.create(name: "Spikes", description: "Womens spikes for icy or slippery hikes. They run a little small, can fit up to a size 9.", borrowed: false, user_id: User.first.id, picture: "https://www.ebay.com/itm/203443015740?_trkparms=ispr%3D1&amdata=enc%3AAQAFAAAAkDEvIEMYUwhL0GWrHNWRR%2Fg209xYPVGoWEx7JzQ7zNOvqgYQUTLEzbtJ75YqbGEDk4YszTetID7gpYd8hQturzGChhguNwfnpE4iwLRDlpJ0slWqveX0frCNiftolXBfEWNLe4QswyqSHjMH8QZCcPPO3qGY4XzWfx71CIwaST1G4jmNo%2FAPUCYR61ZpMhnowg%3D%3D&chn=ps&norover=1&mkevt=1&mkrid=711-117182-37290-0&mkcid=2&itemid=203443015740&targetid=1262906534562&device=c&mktype=pla&googleloc=9004351&poi=&campaignid=12874653489&mkgroupid=121942647533&rlsatarget=pla-1262906534562&abcId=9300535&merchantid=223114833&gclid=CjwKCAjwwqaGBhBKEiwAMk-FtOc0PQVauririLjN04PH9MnfYFzuoxYTQ0EfPGEY1EPqjL0f56WqPBoCrxwQAvD_BwE")
 
 puts "item created"
+
 
 puts "seeding done!"

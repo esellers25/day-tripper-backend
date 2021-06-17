@@ -1,5 +1,6 @@
 class TrailListsController < ApplicationController
-
+    before_action :authorized, only: [:create, :destroy]
+    
     def index 
         trail_lists = TrailList.all
         render json: trail_lists

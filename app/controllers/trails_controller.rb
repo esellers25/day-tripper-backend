@@ -1,8 +1,9 @@
 class TrailsController < ApplicationController
-    
+    before_action :authorized, only: [:create]
+
     def index 
         trails = Trail.all 
-        render json: trails 
+        render json: trails, flag: "restrict" 
     end 
 
     def show 
