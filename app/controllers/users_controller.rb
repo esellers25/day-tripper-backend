@@ -46,7 +46,13 @@ class UsersController < ApplicationController
     end
 
     def update 
-        @user.update(params.require(:user).permit(:name, :email, :location, :profile_picture, :username, :id, :password))
+        @user = User.find(params[:id])
+        if params[:profile_picture]
+            result = Cloudinary::Uploader.upload(params[:profile_picture])
+            @user.update(profile_picture: result['url'])
+        else 
+            @user.update(params.require(:user).permit(:name, :email, :location, :profile_picture, :username, :id, :password))
+        end 
         render json: @user 
     end 
 
