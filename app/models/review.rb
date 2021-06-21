@@ -6,4 +6,8 @@ class Review < ApplicationRecord
     self.user.username 
   end
 
+  def avatar
+    self.user.profile_picture
+  end 
+
 end

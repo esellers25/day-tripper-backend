@@ -16,10 +16,16 @@ class ListsController < ApplicationController
         render json: list 
     end 
 
+    def update
+        list = List.find(params[:id])
+        list.update(list_params)
+        render json: list 
+    end 
+
     private 
 
     def list_params 
-        params.permit(:title, :user_id)
+        params.permit(:title, :user_id, :public)
     end 
 
 end
